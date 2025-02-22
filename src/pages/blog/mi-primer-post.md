@@ -2,8 +2,11 @@
 layout: ../../layouts/BlogPost.astro
 title: "Mi primer post"
 description: "Una introducción a mi blog y lo que encontrarás aquí"
-pubDate: "2025-02-22"
 tags: ["Personal", "Desarrollo Web"]
+image: {
+    url: "/idea-FernandoTrejoTorres.webp",
+    alt: "Fernando Trejo Torres - Blog"
+}
 ---
 
 # Bienvenidos a mi blog
@@ -18,6 +21,21 @@ En este blog escribiré sobre:
 - Experiencias personales en el mundo tech
 - Tutoriales y guías paso a paso
 - Reseñas de tecnologías y herramientas
+
+## Ejemplo de fórmula matemática
+
+La fórmula cuadrática es:
+
+$$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$
+
+## Ejemplo de código
+
+```python
+def fibonacci(n):
+    if n <= 1:
+        return n
+    return fibonacci(n-1) + fibonacci(n-2)
+```
 
 ## Mi objetivo
 

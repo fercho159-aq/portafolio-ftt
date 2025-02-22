@@ -4,34 +4,36 @@ import LayoutBlog from './LayoutBlog.astro'
 interface Props {
     title: string;
     description: string;
-    pubDate: string | Date;
     tags?: string[];
+    image?: {
+        url: string;
+        alt: string;
+    };
 }
 
-const { title, description, pubDate, tags = [] } = Astro.props;
-const publishDate = new Date(pubDate);
-const formattedDate = !isNaN(publishDate.getTime()) 
-    ? publishDate.toLocaleDateString('es-ES', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-    })
-    : 'Fecha no disponible';
+const { title, description, tags = [], image } = Astro.props;
 ---
 
 <LayoutBlog title={`${title} - Blog de Fernando Trejo`} description={description}>
     <article class="mx-auto max-w-[70ch] py-24 sm:py-32">
         <header class="mb-16">
-            <time class="text-sm text-white/60 mb-4 block">
-                {formattedDate}
-            </time>
-            <h1 class="text-4xl sm:text-5xl font-bold text-white/90 mb-6 leading-tight">
+            <h1 class="text-4xl sm:text-5xl font-bold text-white/90 mb-6 leading-tight tracking-tight">
                 {title}
             </h1>
+            {image && (
+                <figure class="mb-8 rounded-xl overflow-hidden bg-white/5 border border-white/10">
+                    <img 
+                        src={image.url} 
+                        alt={image.alt}
+                        class="w-full aspect-video object-cover hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                    />
+                </figure>
+            )}
             {tags.length > 0 && (
                 <div class="flex flex-wrap gap-2">
                     {tags.map(tag => (
-                        <span class="bg-white/5 border border-white/10 rounded-full px-3 py-1 text-sm text-white/70">
+                        <span class="bg-white/5 border border-white/10 rounded-full px-4 py-1.5 text-sm text-white/70 hover:bg-white/10 hover:text-white/90 transition-colors">
                             {tag}
                         </span>
                     ))}
@@ -39,8 +41,100 @@ const formattedDate = !isNaN(publishDate.getTime())
             )}
         </header>
 
-        <div class="prose prose-invert max-w-none prose-p:text-white/70 prose-headings:text-white/90 prose-strong:text-white/90 prose-a:text-blue-400 prose-headings:font-bold prose-headings:tracking-tight prose-h2:text-2xl prose-h3:text-xl">
+        <div class="prose prose-invert max-w-none 
+            prose-p:text-pretty prose-p:text-white/70 prose-p:leading-relaxed
+            prose-headings:text-white/90 prose-headings:font-bold prose-headings:tracking-tight
+            prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
+            prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
+            prose-strong:text-white/90 prose-strong:font-bold
+            prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline
+            prose-pre:bg-[#282c34] prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl
+            prose-code:text-white/90 prose-code:bg-white/5 prose-code:rounded-md prose-code:px-1.5 prose-code:py-0.5
+            prose-img:rounded-xl prose-img:mx-auto prose-img:shadow-xl
+            prose-ul:list-disc prose-ul:pl-4 prose-li:text-white/70 prose-li:marker:text-blue-400
+            prose-blockquote:border-l-4 prose-blockquote:border-blue-400 prose-blockquote:pl-6 prose-blockquote:italic
+            [&_.math]:flex [&_.math]:justify-center [&_.math]:py-6 [&_.math.math-display]:overflow-x-auto
+            [&>:first-child]:mt-0 [&>:last-child]:mb-0">
             <slot />
         </div>
     </article>
 </LayoutBlog>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+
+<style is:global>
+    /* Estilos para bloques de código */
+    pre {
+        padding: 1.25rem !important;
+        margin: 2rem 0 !important;
+        overflow-x: auto;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+    
+    pre code {
+        background: transparent !important;
+        padding: 0 !important;
+        border-radius: 0 !important;
+        font-size: 0.95em !important;
+        line-height: 1.7 !important;
+    }
+
+    /* Estilos para fórmulas matemáticas */
+    .math.math-display {
+        padding: 1.5rem 0;
+    }
+
+    .katex-display {
+        margin: 0 !important;
+        padding: 1.5rem !important;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 0.75rem;
+        overflow-x: auto;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    .katex {
+        font-size: 1.1em;
+    }
+
+    /* Estilos para imágenes dentro del contenido */
+    .prose img {
+        transition: transform 0.3s ease;
+    }
+
+    .prose img:hover {
+        transform: scale(1.02);
+    }
+
+    /* Estilos para enlaces */
+    .prose a {
+        transition: all 0.2s ease;
+    }
+
+    .prose a:hover {
+        color: rgb(96, 165, 250) !important;
+    }
+
+    /* Estilos para listas */
+    .prose ul {
+        margin-top: 1.5em;
+        margin-bottom: 1.5em;
+    }
+
+    .prose li {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+
+    /* Estilos para citas */
+    .prose blockquote p {
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.8) !important;
+    }
+
+    /* Ajustes de espaciado */
+    .prose > * + * {
+        margin-top: 1.5em;
+    }
+</style>
