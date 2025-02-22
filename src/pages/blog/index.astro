@@ -1,0 +1,65 @@
+---
+import LayoutBlog from '../../layouts/LayoutBlog.astro'
+
+const posts = [
+    {
+        title: "Mi primer post",
+        description: "Una introducción a mi blog y lo que encontrarás aquí",
+        date: "2025-02-22",
+        slug: "mi-primer-post",
+        tags: ["Personal", "Desarrollo Web"]
+    },
+    {
+        title: "Cómo empecé en el desarrollo web",
+        description: "Mi viaje personal en el mundo del desarrollo web y las lecciones aprendidas",
+        date: "2025-02-21",
+        slug: "como-empece-en-desarrollo-web",
+        tags: ["Desarrollo Web", "Carrera"]
+    }
+]
+---
+
+<LayoutBlog title="Blog - Fernando Trejo Torres">
+    <div class="py-44 mx-auto w-full xl:w-[740px] text-pretty">
+        <h1 class="text-5xl font-bold text-white/80 mb-8 flex items-center gap-x-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="size-16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
+                <path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z"></path>
+                <path d="M7 8h10"></path>
+                <path d="M7 12h10"></path>
+                <path d="M7 16h10"></path>
+              </svg>
+            Blog
+        </h1>
+
+        <div class="grid gap-8">
+            {posts.map(post => (
+                <article class="group">
+                    <a href={`/blog/${post.slug}`} class="block p-6 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 transition">
+                        <h2 class="text-2xl font-semibold text-white/80 mb-2 group-hover:text-white transition">
+                            {post.title}
+                        </h2>
+                        <p class="text-white/60 mb-4">
+                            {post.description}
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex gap-2">
+                                {post.tags.map(tag => (
+                                    <span class="bg-white/5 border border-white/10 rounded-full px-3 py-1 text-xs text-white/70">
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+                            <time class="text-sm text-white/40">
+                                {new Date(post.date).toLocaleDateString('es-ES', {
+                                    year: 'numeric',
+                                    month: 'long',
+                                    day: 'numeric'
+                                })}
+                            </time>
+                        </div>
+                    </a>
+                </article>
+            ))}
+        </div>
+    </div>
+</LayoutBlog>

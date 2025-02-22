@@ -5,7 +5,7 @@ import '@fontsource-variable/onest';
 import Experience from '../components/Experience.astro';
 import Foteer from '../components/Foteer.astro';
 import Projects from '../components/Projects.astro';
-import	About from '../components/About.astro';
+import AllProjects from '../components/AllProjects.astro';
 ---
 
 <!doctype html>
@@ -16,7 +16,7 @@ import	About from '../components/About.astro';
 	<meta name="description" content="Explora el portafolio de Fernando Trejo Torres, desarrollador con experiencia en proyectos innovadores. Descubre habilidades en tecnologías de vanguardia y soluciones personalizadas. Contáctame para tu próximo desafío." />
 	<link rel="icon" type="image/svg+xml" href="../../public/favicon-fernandoTrjoTorresDesarrollador.webp" />
 	<meta name="generator" content={Astro.generator} />
-	<title>Portafolio Fernando Trejo Torres - Desarrollador y Programador Web</title>
+	<title>Proyectos Fernando Trejo Torres - Desarrollador y Programador Web</title>
 </head>
 
 <body class="relative  ">
@@ -27,9 +27,7 @@ import	About from '../components/About.astro';
 	
 		<main class="max-w-[1120px] mx-auto">
 			<slot />
-			<Experience />
-			<Projects />
-			<About />
+			<AllProjects />
 		</main>
 		<Foteer />
 	</div>

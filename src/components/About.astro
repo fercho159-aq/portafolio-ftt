@@ -1,0 +1,64 @@
+---
+const skills = [
+"JavaScript",
+"TypeScript",
+"React",
+"Node.js",
+"HTML",
+"CSS",
+"Git",
+"MongoDB",
+"SQL",
+"Python",
+"Java","Excel", "PowerBi","Python", "Wordpress", "Astro","Bootstrap", "Tailwind"
+]
+---
+
+<div class="mx-auto w-full lg:w-[740px] pt-20" id="SobreMi">
+    <h2 class="text-3xl font-semibold mb-6 text-white/80 flex items-center gap-x-2">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
+            <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path>
+            <path d="M6 21v-2a4 4 0 0 1 4 -4h4"></path>
+            <path d="M15 19l2 2l4 -4"></path>
+        </svg>
+        Sobre mi
+    </h2>
+
+    <div class="flex flex-col md:flex-row text-wrap gap-8 items-center">
+        <div class="[&>p]:mb-4 text-pretty">
+            <p class="text-lg text-white/80">
+                ¡Hola! Soy Fernando, desarrollador web full-stack apasionado por crear experiencias digitales
+                excepcionales. Me especializo en el desarrollo de aplicaciones web modernas y escalables.
+            </p>
+
+            <p class="text-white/60">
+                Con más de X años de experiencia en el desarrollo web, he trabajado en diversos proyectos que van desde
+                pequeñas aplicaciones hasta sistemas empresariales complejos. Me encanta aprender nuevas tecnologías y
+                compartir conocimientos con la comunidad.
+            </p>
+
+            <p class="text-white/60">
+                Fuera del código, disfruto [tus hobbies o intereses]. Creo firmemente en el aprendizaje continuo y en
+                mantenerme actualizado con las últimas tendencias tecnológicas.
+            </p>
+        </div>
+
+        <img src="../../public/idea-FernandoTrejoTorres.webp" alt="Fernando Trejo" class="rounded-full size-64 object-cover" />
+    </div>
+
+    <div class="mt-8">
+        <h3 class="text-xl font-semibold text-white/80 mb-4">Tecnologías con las que trabajo</h3>
+        <ul class="flex flex-wrap gap-2">
+            {
+            skills.map((skill) => (
+            <li>
+                <span class="bg-white/5 border border-white/10 rounded-full px-3 py-1 text-sm text-white/70">
+                    {skill}
+                </span>
+            </li>
+            ))
+            }
+        </ul>
+    </div>
+</div>

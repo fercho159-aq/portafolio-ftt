@@ -1,0 +1,33 @@
+---
+import Header from '../components/Header.astro'
+import Foteer from '../components/Foteer.astro'
+
+interface Props {
+    title: string;
+    description?: string;
+}
+
+const { title, description = "Blog de Fernando Trejo Torres - Desarrollo web, tecnología y más" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content={description} />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="../../public/favicon-fernandoTrjoTorresDesarrollador.webp" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+    </head>
+    <body class="relative">
+        <div class="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
+        <Header />
+        <div class="px-4">
+            <main class="max-w-[870px] mx-auto">
+                <slot />
+            </main>
+        </div>
+        <Foteer />
+    </body>
+</html>

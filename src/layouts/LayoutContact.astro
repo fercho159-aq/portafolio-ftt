@@ -1,0 +1,59 @@
+---
+import Header from '../components/Header.astro'
+import Foteer from '../components/Foteer.astro'
+import Contact  from    '../components/Contact.astro'
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Contacta con Fernando Trejo Torres, desarrollador web full-stack. Estoy disponible para nuevos proyectos y colaboraciones." />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="../../public/favicon-fernandoTrjoTorresDesarrollador.webp" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body class="relative">
+		<div class="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
+		<Header />
+		<div class="px-4">
+			<main class="max-w-[1120px] mx-auto">
+				<slot />
+				<Contact />
+			</main>
+		</div>
+		<Foteer />
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		color-scheme: dark;
+	}
+
+	html {
+		font-family: 'Onest Variable', sans-serif;
+		scroll-behavior: smooth;
+		background: #13151a;
+	}
+
+	body {
+		color: white;
+		display: flex;
+		flex-direction: column;
+		min-height: 100vh;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
+	}
+</style>
