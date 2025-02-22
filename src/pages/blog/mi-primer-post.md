@@ -2,7 +2,7 @@
 layout: ../../layouts/BlogPost.astro
 title: "Mi primer post"
 description: "Una introducción a mi blog y lo que encontrarás aquí"
-pubDate: 2025-02-22
+pubDate: "2025-02-22"
 tags: ["Personal", "Desarrollo Web"]
 ---
 
