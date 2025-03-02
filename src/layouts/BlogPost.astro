@@ -1,4 +1,5 @@
 ---
+import type { HTMLAttributes } from 'astro/types';
 import LayoutBlog from './LayoutBlog.astro'
 
 interface Props {
@@ -9,15 +10,16 @@ interface Props {
         url: string;
         alt: string;
     };
+    h1?: HTMLAttributes<'h1'>;
 }
 
-const { title, description, tags = [], image } = Astro.props;
+const { title, description, tags = [], image, h1 } = Astro.props;
 ---
 
 <LayoutBlog title={`${title} - Blog de Fernando Trejo`} description={description}>
     <article class="mx-auto max-w-[70ch] py-24 sm:py-32">
         <header class="mb-16">
-            <h1 class="text-4xl sm:text-5xl font-bold text-white/90 mb-6 leading-tight tracking-tight">
+            <h1 {...h1} class="text-4xl sm:text-5xl font-bold text-white/90 mb-6 leading-tight tracking-tight">
                 {title}
             </h1>
             {image && (
