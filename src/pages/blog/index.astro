@@ -3,53 +3,64 @@ import LayoutBlog from '../../layouts/LayoutBlog.astro'
 
 const posts = [
     {
-        title: "Mi primer post",
-        description: "Una introducción a mi blog y lo que encontrarás aquí",
-        date: "2025-02-22",
-        slug: "mi-primer-post",
-        tags: ["Personal", "Desarrollo Web"]
+        title: "¿Qué es HTML? Guía Completa para Principiantes con Recursos Gratis",
+        description: "Descubre qué es HTML, su importancia en el desarrollo web y accede a recursos gratuitos para aprender desde cero. Domina la estructura básica de una página web aquí.",
+        date: "2025-03-02",
+        slug: "que-es-html-guia-completa-para-principiantes-con-recursos-gratis",
+        tags: ["HTML", "Desarrollo Web", "Tutoriales"]
     },
     {
-        title: "Como empecé en el desarrollo web",
-        description: "Mi viaje personal en el mundo del desarrollo web y las lecciones aprendidas",
-        date: "2025-02-21",
-        slug: "como-empece-en-desarrollo-web",
-        tags: ["Desarrollo Web", "Carrera"]
+        title: "Mi primer post",
+        description: "Una introducción a mi blog y lo que encontrarás aquí",
+        date: "2025-03-02",
+        slug: "mi-primer-post",
+        tags: ["Personal", "Desarrollo Web"]
     }
-]
+].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 ---
 
 <LayoutBlog title="Blog - Fernando Trejo Torres">
-    <div class="py-44 mx-auto w-full xl:w-[740px] text-pretty">
-        <h1 class="text-5xl font-bold text-white/80 mb-8 flex items-center gap-x-3">
-            <svg xmlns="http://www.w3.org/2000/svg" class="size-16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
-                <path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z"></path>
-                <path d="M7 8h10"></path>
-                <path d="M7 12h10"></path>
-                <path d="M7 16h10"></path>
-              </svg>
-            Blog
-        </h1>
+    <div class="py-24 mx-auto w-full xl:w-[740px] text-pretty animate-fade-up">
+        <header class="mb-16">
+            <h1 class="text-5xl font-bold text-white/90 mb-6 flex items-center gap-x-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="size-12 text-purple-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
+                    <path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z"></path>
+                    <path d="M7 8h10"></path>
+                    <path d="M7 12h10"></path>
+                    <path d="M7 16h10"></path>
+                </svg>
+                Blog
+            </h1>
+            <p class="text-lg text-white/70 max-w-[600px] leading-relaxed">
+                Bienvenido a mi blog personal. Aquí comparto mis experiencias, conocimientos y reflexiones sobre desarrollo web, tecnología y crecimiento profesional.
+            </p>
+        </header>
 
         <div class="grid gap-8">
             {posts.map(post => (
                 <article class="group">
-                    <a href={`/blog/${post.slug}`} class="block p-6 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 transition">
-                        <h2 class="text-2xl font-semibold text-white/80 mb-2 group-hover:text-white transition">
+                    <a href={`/blog/${post.slug}`} 
+                       class="block p-8 bg-white/5 border border-white/10 rounded-xl 
+                              hover:bg-white/10 hover:border-white/20 hover:scale-[1.01] 
+                              transition-all duration-300 ease-out">
+                        <h2 class="text-2xl font-semibold text-white/90 mb-3 
+                                 group-hover:text-purple-400 transition-colors">
                             {post.title}
                         </h2>
-                        <p class="text-white/60 mb-4">
+                        <p class="text-white/70 mb-6 leading-relaxed">
                             {post.description}
                         </p>
-                        <div class="flex items-center justify-between">
-                            <div class="flex gap-2">
+                        <div class="flex items-center justify-between flex-wrap gap-4">
+                            <div class="flex gap-2 flex-wrap">
                                 {post.tags.map(tag => (
-                                    <span class="bg-white/5 border border-white/10 rounded-full px-3 py-1 text-xs text-white/70">
+                                    <span class="bg-purple-500/10 border border-purple-500/20 
+                                               rounded-full px-4 py-1 text-sm text-purple-400
+                                               hover:bg-purple-500/20 transition-colors">
                                         {tag}
                                     </span>
                                 ))}
                             </div>
-                            <time class="text-sm text-white/40">
+                            <time class="text-sm text-white/50 font-medium">
                                 {new Date(post.date).toLocaleDateString('es-ES', {
                                     year: 'numeric',
                                     month: 'long',
@@ -61,5 +72,13 @@ const posts = [
                 </article>
             ))}
         </div>
+
+        {posts.length === 0 && (
+            <div class="text-center py-20">
+                <p class="text-white/60 text-lg">
+                    Pronto publicaré contenido interesante. ¡Vuelve pronto!
+                </p>
+            </div>
+        )}
     </div>
 </LayoutBlog>

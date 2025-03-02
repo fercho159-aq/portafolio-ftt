@@ -1,53 +1,63 @@
 ---
-layout: ../../layouts/BlogPost.astro
+layout: ../../layouts/PostLayout.astro
 title: "Mi primer post"
 description: "Una introducción a mi blog y lo que encontrarás aquí"
+date: "2025-03-02"
+slug: "mi-primer-post"
 tags: ["Personal", "Desarrollo Web"]
-image: {
-    url: "/idea-FernandoTrejoTorres.webp",
-    alt: "Fernando Trejo Torres - Blog"
-}
 ---
 
-# Bienvenidos a mi blog
+# 🌐 Bienvenido a mi blog de desarrollo web
 
-¡Hola! Soy Fernando Trejo, y este es mi primer post en el blog. Aquí compartiré mis experiencias, conocimientos y reflexiones sobre desarrollo web, tecnología y más.
+¡Hola! Soy Fernando Trejo Torres, y este es mi primer post en este blog personal. Aquí compartiré mis experiencias, proyectos y conocimientos sobre desarrollo web y software. Espero que sea de utilidad para ti, ya seas principiante o experimentado.
 
-## ¿Qué encontrarás aquí?
+---
 
-En este blog escribiré sobre:
+## 🚀 ¿Por qué este blog?
 
-- Desarrollo web y mejores prácticas
-- Experiencias personales en el mundo tech
-- Tutoriales y guías paso a paso
-- Reseñas de tecnologías y herramientas
+Siempre he creído que la mejor manera de aprender es enseñar. A lo largo de mi carrera como desarrollador, he enfrentado desafíos, errores y logros que me han ayudado a crecer. Aquí, quiero documentar mi camino y contribuir a la comunidad de desarrolladores.
 
-## Ejemplo de fórmula matemática
+---
 
-La fórmula cuadrática es:
+## 💡 ¿Qué encontrarás aquí?
 
-$$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$
+Este blog se enfocará en temas como:
 
-## Ejemplo de código
+- **Desarrollo Frontend**: HTML, CSS, JavaScript, frameworks como React o Vue.js.
+- **Backend**: Node.js, Python, bases de datos (SQL y NoSQL).
+- **Herramientas**: Git, Docker, CI/CD, metodologías ágiles.
+- **Proyectos personales**: Código abierto, aplicaciones web y experiencias de aprendizaje.
+- **Reflexiones personales**: Historias detrás del código y lecciones aprendidas.
 
-```python
-def fibonacci(n):
-    if n <= 1:
-        return n
-    return fibonacci(n-1) + fibonacci(n-2)
-```
+---
 
-## Mi objetivo
+## 🛠️ Un ejemplo práctico: Crear una página web básica
 
-Mi objetivo principal es compartir conocimiento y experiencias que puedan ayudar a otros desarrolladores en su camino profesional. Creo firmemente en el aprendizaje continuo y en la importancia de compartir lo que aprendemos.
+Para empezar, aquí tienes un ejemplo simple de cómo estructurar una página web con HTML y CSS:
 
-## Próximos temas
-
-Algunos de los temas que planeo cubrir en futuros posts incluyen:
-
-1. Cómo empecé en el desarrollo web
-2. Tips para mejorar tu portfolio
-3. Mejores prácticas en desarrollo frontend
-4. Experiencias con diferentes frameworks y librerías
-
-¡Mantente atento para más contenido!
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi primera página</title>
+  <style>
+    body { font-family: Arial, sans-serif; }
+    header { background-color: #4CAF50; color: white; padding: 1rem; }
+    footer { margin-top: 2rem; text-align: center; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>¡Hola, mundo!</h1>
+    <p>Bienvenido a mi primera página web.</p>
+  </header>
+  <main>
+    <p>Este es un ejemplo básico de HTML y CSS. ¡Sigue aprendiendo!</p>
+  </main>
+  <footer>
+    <p> 2025 - Creado por Fernando Trejo Torres</p>
+  </footer>
+</body>
+</html>
